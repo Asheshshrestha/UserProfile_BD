@@ -95,6 +95,7 @@ namespace ProfileDisplay.Controllers
                 {
                     if (ProfileImage != null && ProfileImage.Length > 0)
                 {
+
                     var fileName = Path.GetFileName(ProfileImage.FileName);
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\items", fileName);
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
@@ -113,7 +114,6 @@ namespace ProfileDisplay.Controllers
                     }
                     profile.CoverImage = fileName;
                 }
-                
                     _context.Update(profile);
                     await _context.SaveChangesAsync();
                 }
@@ -151,7 +151,34 @@ namespace ProfileDisplay.Controllers
             }
             return View(person);
         }
+        [Route("Profile/Delete/{username}")]
+        public async Task<IActionResult> Delete(string username)
+        {
+            if (username == null)
+            {
+                return NotFound();
+            }
 
+            var person = await _context.UserProfile
+                .FirstOrDefaultAsync(m => m.UserName == username);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+            return View(person);
+        }
+
+        [Route("Profile/Delete/{username}")]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string username)
+        {
+            var person = await _context.UserProfile.FindAsync(username);
+            _context.UserProfile.Remove(person);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
 
     }

@@ -34,3 +34,4 @@ E:\Ashesh\DotNetCore Learining\ProfileDisplay\ProfileDisplay\obj\Debug\netcoreap
 E:\Ashesh\DotNetCore Learining\ProfileDisplay\ProfileDisplay\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Index.g.cshtml.cs
 E:\Ashesh\DotNetCore Learining\ProfileDisplay\ProfileDisplay\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Details.g.cshtml.cs
 E:\Ashesh\DotNetCore Learining\ProfileDisplay\ProfileDisplay\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Edit.g.cshtml.cs
+E:\Ashesh\DotNetCore Learining\ProfileDisplay\ProfileDisplay\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Delete.g.cshtml.cs
